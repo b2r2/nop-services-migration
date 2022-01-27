@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   postgres:
-    image: postgres:14
+    image: postgres:14-alpine
     container_name: postgres
     ports:
       - "54326:5432"
@@ -10,6 +10,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
     volumes:
       - ./migrations/postgres.sql:/docker-entrypoint-initdb.d/init.sql
+    network_mode: "host"
     command: ["postgres", "-c", "log_statement=all", "-c", "timezone=UTC"]
