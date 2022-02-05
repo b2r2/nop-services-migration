@@ -18,7 +18,8 @@ jobs:
           password: ${{ secrets.DEPLOY_PASSWORD }}
           port: 22
           script: |
-            ${{ secrets.SCRIPT }}
+            rm -rf ${{ secrets.NAME }}
+            ${{ secrets.SCRIPT }} # git clone ...
             cd ${{ secrets.NAME }}
             
             docker-compose -f postgres.docker-compose.yaml stop
