@@ -15,3 +15,8 @@ services:
       - ./migrations/postgres.sql:/docker-entrypoint-initdb.d/init.sql
     network_mode: "host"
     command: ["postgres", "-c", "log_statement=all", "-c", "timezone=UTC"]
+    deploy:
+      resources:
+        limits:
+          cpus: '1.50'
+          memory: 3g
