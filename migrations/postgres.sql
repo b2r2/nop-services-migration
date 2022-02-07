@@ -27,3 +27,4 @@ CREATE TABLE IF NOT EXISTS recruiter_types
 
 INSERT INTO recruiter_types(id, code, title) VALUES (0, 'UNKNOWN', '');
 INSERT INTO recruiter_types(id, code, title) VALUES (1, 'Moscow', 'Москва');
+INSERT INTO recruiter_types(id, code, title) VALUES (2, 'Remote', 'Удаленная работа');
