@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS recruiters
     hh_id                   varchar(255)    NOT NULL,
     name                    varchar(255)    NOT NULL,
     url                     varchar(255)    NOT NULL UNIQUE,
+    type_id                 int             NOT NULL,
     area                    varchar(255)    NOT NULL,
     schedule                varchar(255)    NOT NULL,
     requirement             varchar(255)    NOT NULL,
@@ -15,16 +16,6 @@ CREATE TABLE IF NOT EXISTS recruiters
     employer                varchar(255)    NOT NULL,
     employer_url            varchar(255)    NOT NULL,
     published_at            timestamp       NOT NULL,
-    language_key            varchar(100)    NOT NULL
+    language_key            varchar(100)    NOT NULL,
+    created_at              TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
-
-CREATE TABLE IF NOT EXISTS recruiter_types
-(
-    id                      smallserial     NOT NULL PRIMARY KEY,
-    code                    varchar(20)     NOT NULL DEFAULT '',
-    title                   varchar(20)     NOT NULL DEFAULT ''
-);
-
-INSERT INTO recruiter_types(id, code, title) VALUES (0, 'UNKNOWN', '');
-INSERT INTO recruiter_types(id, code, title) VALUES (1, 'Moscow', 'Москва');
-INSERT INTO recruiter_types(id, code, title) VALUES (2, 'Remote', 'Удаленная работа');
