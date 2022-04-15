@@ -23,4 +23,5 @@ jobs:
             cd ${{ secrets.NAME }}
             
             docker-compose -f postgres.docker-compose.yaml stop
+            docker compose rm
             docker-compose -f postgres.docker-compose.yaml --compatibility up -d
