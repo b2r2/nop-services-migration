@@ -12,11 +12,13 @@ services:
       POSTGRES_DB: postgres
       POSTGRES_HOST_AUTH_METHOD: trust
     volumes:
-      - ./data-volume:/var/lib/postgresql/data
-    network_mode: "host"
+      - data-volume:/var/lib/postgresql/data
     command: ["postgres", "-c", "log_statement=all", "-c", "timezone=UTC"]
     deploy:
       resources:
         limits:
           cpus: '1.50'
           memory: 3g
+
+volumes:
+    data-volume:
